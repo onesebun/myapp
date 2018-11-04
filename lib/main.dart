@@ -81,7 +81,16 @@ class RandomWordsState extends State<RandomWords> {
       trailing: new Icon(   // Add the lines from here... 
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
-      ),                    // ... to here.
+      ),
+      onTap: () {      // Add 9 lines from here...
+        setState(() {
+          if (alreadySaved) {
+            _saved.remove(pair);
+          } else { 
+            _saved.add(pair); 
+          } 
+        });
+      },
     );
   }
 }
